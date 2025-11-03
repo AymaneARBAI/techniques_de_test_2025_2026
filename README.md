@@ -9,7 +9,7 @@ Vous devez compléter cette partie pour qu'on puisse vous identifier.
 
 Nom : ARBAI  
 Prénom : Aymane  
-Groupe de TP : M1 ILSEN alt (e.g. M1 ILSEN classique)  
+Groupe de TP : M1 ILSEN alt 
 
 ## Remarques particulières
 
