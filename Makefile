@@ -1,7 +1,6 @@
 # Makefile for common tasks
 .PHONY: test unit_test perf_test coverage lint doc
 
-# Use the virtualenv provided at repository root for reproducible tooling
 VENV_BIN := ../env/bin
 TEST_DIR := TP/tests
 
