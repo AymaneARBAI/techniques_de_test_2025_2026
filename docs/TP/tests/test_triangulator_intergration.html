@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>TP.tests.test_triangulator_intergration API documentation</title>
+<meta name="description" content="Integration tests for the Triangulator API and helpers.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>TP.tests.test_triangulator_intergration</code></h1>
+</header>
+<section id="section-intro">
+<p>Integration tests for the Triangulator API and helpers.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="TP.tests.test_triangulator_intergration.test_api_triangulate"><code class="name flex">
+<span>def <span class="ident">test_api_triangulate</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_api_triangulate():
+    &#34;&#34;&#34;Test GET /triangulate returns binary triangles payload.&#34;&#34;&#34;
+    manager = FakePointSetManager()
+    manager.save(&#34;ps1&#34;, PointSet(points=[(0, 0), (1, 0), (0, 1)]))
+
+    triangulator = Triangulator()
+    triangulator.get_pointset = lambda pid: manager.get(pid)
+
+    app = create_app(triangulator)
+    client = app.test_client()
+
+    r = client.get(&#34;/triangulate/ps1&#34;)
+    assert r.status_code == 200
+    assert isinstance(r.data, bytes)
+    assert len(r.data) &gt; 0
+    assert r.headers.get(&#34;Content-Type&#34;, &#34;&#34;).startswith(&#34;application/octet-stream&#34;)</code></pre>
+</details>
+<div class="desc"><p>Test GET /triangulate returns binary triangles payload.</p></div>
+</dd>
+<dt id="TP.tests.test_triangulator_intergration.test_api_triangulate_bad_id_format"><code class="name flex">
+<span>def <span class="ident">test_api_triangulate_bad_id_format</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_api_triangulate_bad_id_format():
+    &#34;&#34;&#34;Test API returns 400 for bad point set id format.&#34;&#34;&#34;
+    triangulator = Triangulator()
+
+    # simuler mauvais format UUID 
+    triangulator.get_pointset = lambda pid: (
+        (_ for _ in ()).throw(ValueError(&#34;bad format&#34;))
+    )
+
+    app = create_app(triangulator)
+    client = app.test_client()
+
+    r = client.get(&#34;/triangulate/ID_MAUVAIS_FORMAT&#34;)
+    assert r.status_code == 400
+    assert r.is_json
+    body = r.get_json()
+    assert &#34;code&#34; in body and &#34;message&#34; in body</code></pre>
+</details>
+<div class="desc"><p>Test API returns 400 for bad point set id format.</p></div>
+</dd>
+<dt id="TP.tests.test_triangulator_intergration.test_api_triangulate_empty_pointset"><code class="name flex">
+<span>def <span class="ident">test_api_triangulate_empty_pointset</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_api_triangulate_empty_pointset():
+    &#34;&#34;&#34;Test API handles empty PointSet returning binary payload.&#34;&#34;&#34;
+    manager = FakePointSetManager()
+    manager.save(&#34;empty&#34;, PointSet(points=[]))
+
+    triangulator = Triangulator()
+    triangulator.get_pointset = lambda pid: manager.get(pid)
+
+    app = create_app(triangulator)
+    client = app.test_client()
+
+    r = client.get(&#34;/triangulate/empty&#34;)
+    assert r.status_code == 200
+    assert isinstance(r.data, bytes)
+    assert r.headers.get(&#34;Content-Type&#34;, &#34;&#34;).startswith(&#34;application/octet-stream&#34;)</code></pre>
+</details>
+<div class="desc"><p>Test API handles empty PointSet returning binary payload.</p></div>
+</dd>
+<dt id="TP.tests.test_triangulator_intergration.test_api_triangulate_manager_unavailable"><code class="name flex">
+<span>def <span class="ident">test_api_triangulate_manager_unavailable</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_api_triangulate_manager_unavailable():
+    &#34;&#34;&#34;Test API returns 503 when the PointSet manager is unavailable.&#34;&#34;&#34;
+    triangulator = Triangulator()
+
+    # simuler manager down
+    triangulator.get_pointset = lambda pid: (
+        (_ for _ in ()).throw(ConnectionError(&#34;down&#34;))
+    )
+
+    app = create_app(triangulator)
+    client = app.test_client()
+
+    r = client.get(&#34;/triangulate/ps1&#34;)
+    assert r.status_code == 503
+    assert r.is_json
+    body = r.get_json()
+    assert &#34;code&#34; in body and &#34;message&#34; in body</code></pre>
+</details>
+<div class="desc"><p>Test API returns 503 when the PointSet manager is unavailable.</p></div>
+</dd>
+<dt id="TP.tests.test_triangulator_intergration.test_api_triangulate_not_found"><code class="name flex">
+<span>def <span class="ident">test_api_triangulate_not_found</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_api_triangulate_not_found():
+    &#34;&#34;&#34;Vérifie le code 404 quand le PointSet n&#39;est pas trouvé.&#34;&#34;&#34;
+    triangulator = Triangulator()
+
+    # simuler pointset non trouvé 
+    triangulator.get_pointset = lambda pid: (_ for _ in ()).throw(KeyError(&#34;not found&#34;))
+
+    app = create_app(triangulator)
+    client = app.test_client()
+
+    r = client.get(&#34;/triangulate/1z2356&#34;)
+    assert r.status_code == 404
+    assert r.is_json
+    body = r.get_json()
+    assert &#34;code&#34; in body and &#34;message&#34; in body</code></pre>
+</details>
+<div class="desc"><p>Vérifie le code 404 quand le PointSet n'est pas trouvé.</p></div>
+</dd>
+<dt id="TP.tests.test_triangulator_intergration.test_api_triangulate_unknown_id"><code class="name flex">
+<span>def <span class="ident">test_api_triangulate_unknown_id</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_api_triangulate_unknown_id():
+    &#34;&#34;&#34;Test API returns an error for unknown point set id.&#34;&#34;&#34;
+    triangulator = Triangulator()
+    triangulator.get_pointset = lambda pid: (_ for _ in ()).throw(KeyError())
+
+    app = create_app(triangulator)
+    client = app.test_client()
+
+    r = client.get(&#34;/triangulate/inconnu&#34;)
+    assert r.status_code in (400, 404, 500)
+    assert r.is_json
+    body = r.get_json()
+    assert &#34;code&#34; in body and &#34;message&#34; in body</code></pre>
+</details>
+<div class="desc"><p>Test API returns an error for unknown point set id.</p></div>
+</dd>
+<dt id="TP.tests.test_triangulator_intergration.test_integration_full_triangulation"><code class="name flex">
+<span>def <span class="ident">test_integration_full_triangulation</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_integration_full_triangulation():
+    &#34;&#34;&#34;Client -&gt; PointSetManager -&gt; Triangulator -&gt; Triangles.&#34;&#34;&#34;
+    manager = FakePointSetManager()
+    triangulator = Triangulator()
+
+    # Le client envoie un ensemble de points au PointSetManager
+    pointset = PointSet(points=[(0, 0), (1, 0), (0, 1)])
+    manager.save(&#34;ps1&#34;, pointset)
+
+    # le Triangulator récupere le PointSet 
+    triangulator.get_pointset = lambda point_set_id: manager.get(point_set_id)
+
+    # Triangulation
+    res = triangulator.triangulate(&#34;ps1&#34;)
+
+    # Vérifications simples
+    assert isinstance(res, Triangles)
+    assert res.sommets == pointset.points
+    assert len(res.triangles) &gt;= 0  # au moins pas d&#39;erreur</code></pre>
+</details>
+<div class="desc"><p>Client -&gt; PointSetManager -&gt; Triangulator -&gt; Triangles.</p></div>
+</dd>
+<dt id="TP.tests.test_triangulator_intergration.test_integration_multiple_pointsets"><code class="name flex">
+<span>def <span class="ident">test_integration_multiple_pointsets</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_integration_multiple_pointsets():
+    &#34;&#34;&#34;Vérifie que plusieurs triangulations successives continuent de marcher.&#34;&#34;&#34;
+    manager = FakePointSetManager()
+    triangulator = Triangulator()
+
+    triangulator.get_pointset = lambda point_set_id: manager.get(point_set_id)
+
+    # on enregistre plusieurs ensembles de points
+    manager.save(&#34;small&#34;, PointSet(points=[(0, 0), (1, 0), (0, 1)]))
+    manager.save(&#34;square&#34;, PointSet(points=[(0, 0), (1, 0), (1, 1), (0, 1)]))
+
+    res1 = triangulator.triangulate(&#34;small&#34;)
+    assert isinstance(res1, Triangles)
+    assert res1.sommets == manager.get(&#34;small&#34;).points
+
+    res2 = triangulator.triangulate(&#34;square&#34;)
+    assert isinstance(res2, Triangles)
+    assert res2.sommets == manager.get(&#34;square&#34;).points
+
+    # on vérifie que chaque appel utilise bien les bons points
+    assert res1.sommets != res2.sommets</code></pre>
+</details>
+<div class="desc"><p>Vérifie que plusieurs triangulations successives continuent de marcher.</p></div>
+</dd>
+<dt id="TP.tests.test_triangulator_intergration.test_integration_results_match_original_points"><code class="name flex">
+<span>def <span class="ident">test_integration_results_match_original_points</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_integration_results_match_original_points():
+    &#34;&#34;&#34;Vérifie que les triangles renvoyés utilisent bien les points d&#39;origine.&#34;&#34;&#34;
+    manager = FakePointSetManager()
+    triangulator = Triangulator()
+
+    original_points = PointSet(points=[(0, 0), (1, 0), (1, 1), (0, 1)])
+    manager.save(&#34;ps2&#34;, original_points)
+
+    triangulator.get_pointset = lambda point_set_id: manager.get(point_set_id)
+    res = triangulator.triangulate(&#34;ps2&#34;)
+
+    # chaque indice de triangle doit pointer vers un sommet existant
+    for (a, b, c) in res.triangles:
+        assert 0 &lt;= a &lt; len(original_points.points)
+        assert 0 &lt;= b &lt; len(original_points.points)
+        assert 0 &lt;= c &lt; len(original_points.points)</code></pre>
+</details>
+<div class="desc"><p>Vérifie que les triangles renvoyés utilisent bien les points d'origine.</p></div>
+</dd>
+<dt id="TP.tests.test_triangulator_intergration.test_integration_unknown_pointset_id"><code class="name flex">
+<span>def <span class="ident">test_integration_unknown_pointset_id</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_integration_unknown_pointset_id():
+    &#34;&#34;&#34;Vérifie le comportement quand l&#39;id n&#39;existe pas dans le manager.&#34;&#34;&#34;
+    manager = FakePointSetManager()
+    triangulator = Triangulator()
+
+    triangulator.get_pointset = lambda point_set_id: manager.get(point_set_id)
+
+    try:
+        triangulator.triangulate(&#34;id_inconnu&#34;)
+        raise AssertionError(&#34;triangulate devrait echouer pour un id inconnu&#34;)
+    except KeyError:
+        assert True</code></pre>
+</details>
+<div class="desc"><p>Vérifie le comportement quand l'id n'existe pas dans le manager.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="TP.tests.test_triangulator_intergration.FakePointSetManager"><code class="flex name class">
+<span>class <span class="ident">FakePointSetManager</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FakePointSetManager:
+    &#34;&#34;&#34;Simule un PointSetManager pour les tests d&#39;intégration.&#34;&#34;&#34;
+
+    def __init__(self):
+        &#34;&#34;&#34;Create an empty fake manager.&#34;&#34;&#34;
+        self.data = {}
+
+    def save(self, point_set_id: str, pointset: PointSet):
+        &#34;&#34;&#34;Enregistre un PointSet avec son id.&#34;&#34;&#34;
+        self.data[point_set_id] = pointset
+
+    def get(self, point_set_id: str) -&gt; PointSet:
+        &#34;&#34;&#34;Récupère un PointSet à partir de son id.&#34;&#34;&#34;
+        return self.data[point_set_id]</code></pre>
+</details>
+<div class="desc"><p>Simule un PointSetManager pour les tests d'intégration.</p>
+<p>Create an empty fake manager.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="TP.tests.test_triangulator_intergration.FakePointSetManager.get"><code class="name flex">
+<span>def <span class="ident">get</span></span>(<span>self, point_set_id: str) ‑> <a title="TP.models.PointSet" href="../models.html#TP.models.PointSet">PointSet</a></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get(self, point_set_id: str) -&gt; PointSet:
+    &#34;&#34;&#34;Récupère un PointSet à partir de son id.&#34;&#34;&#34;
+    return self.data[point_set_id]</code></pre>
+</details>
+<div class="desc"><p>Récupère un PointSet à partir de son id.</p></div>
+</dd>
+<dt id="TP.tests.test_triangulator_intergration.FakePointSetManager.save"><code class="name flex">
+<span>def <span class="ident">save</span></span>(<span>self,<br>point_set_id: str,<br>pointset: <a title="TP.models.PointSet" href="../models.html#TP.models.PointSet">PointSet</a>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save(self, point_set_id: str, pointset: PointSet):
+    &#34;&#34;&#34;Enregistre un PointSet avec son id.&#34;&#34;&#34;
+    self.data[point_set_id] = pointset</code></pre>
+</details>
+<div class="desc"><p>Enregistre un PointSet avec son id.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="TP.tests" href="index.html">TP.tests</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="TP.tests.test_triangulator_intergration.test_api_triangulate" href="#TP.tests.test_triangulator_intergration.test_api_triangulate">test_api_triangulate</a></code></li>
+<li><code><a title="TP.tests.test_triangulator_intergration.test_api_triangulate_bad_id_format" href="#TP.tests.test_triangulator_intergration.test_api_triangulate_bad_id_format">test_api_triangulate_bad_id_format</a></code></li>
+<li><code><a title="TP.tests.test_triangulator_intergration.test_api_triangulate_empty_pointset" href="#TP.tests.test_triangulator_intergration.test_api_triangulate_empty_pointset">test_api_triangulate_empty_pointset</a></code></li>
+<li><code><a title="TP.tests.test_triangulator_intergration.test_api_triangulate_manager_unavailable" href="#TP.tests.test_triangulator_intergration.test_api_triangulate_manager_unavailable">test_api_triangulate_manager_unavailable</a></code></li>
+<li><code><a title="TP.tests.test_triangulator_intergration.test_api_triangulate_not_found" href="#TP.tests.test_triangulator_intergration.test_api_triangulate_not_found">test_api_triangulate_not_found</a></code></li>
+<li><code><a title="TP.tests.test_triangulator_intergration.test_api_triangulate_unknown_id" href="#TP.tests.test_triangulator_intergration.test_api_triangulate_unknown_id">test_api_triangulate_unknown_id</a></code></li>
+<li><code><a title="TP.tests.test_triangulator_intergration.test_integration_full_triangulation" href="#TP.tests.test_triangulator_intergration.test_integration_full_triangulation">test_integration_full_triangulation</a></code></li>
+<li><code><a title="TP.tests.test_triangulator_intergration.test_integration_multiple_pointsets" href="#TP.tests.test_triangulator_intergration.test_integration_multiple_pointsets">test_integration_multiple_pointsets</a></code></li>
+<li><code><a title="TP.tests.test_triangulator_intergration.test_integration_results_match_original_points" href="#TP.tests.test_triangulator_intergration.test_integration_results_match_original_points">test_integration_results_match_original_points</a></code></li>
+<li><code><a title="TP.tests.test_triangulator_intergration.test_integration_unknown_pointset_id" href="#TP.tests.test_triangulator_intergration.test_integration_unknown_pointset_id">test_integration_unknown_pointset_id</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="TP.tests.test_triangulator_intergration.FakePointSetManager" href="#TP.tests.test_triangulator_intergration.FakePointSetManager">FakePointSetManager</a></code></h4>
+<ul class="">
+<li><code><a title="TP.tests.test_triangulator_intergration.FakePointSetManager.get" href="#TP.tests.test_triangulator_intergration.FakePointSetManager.get">get</a></code></li>
+<li><code><a title="TP.tests.test_triangulator_intergration.FakePointSetManager.save" href="#TP.tests.test_triangulator_intergration.FakePointSetManager.save">save</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

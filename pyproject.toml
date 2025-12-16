@@ -8,3 +8,12 @@ select = [
     "SIM",
     "I",
 ]
+# Le projet utilise des docstrings en français ; certaines règles linguistiques
+# (p.ex. D401 qui vérifie la forme impérative en anglais) sont inappropriées
+# pour la langue française. On ignore donc D401 explicitement.
+extend-ignore = ["D401"]
+
+[tool.pytest.ini_options]
+markers = [
+    "perf: performance tests",
+]
